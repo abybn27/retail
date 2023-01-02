@@ -34,3 +34,4 @@ steps:
     command: 'apply'
     arguments: '-f k8s'
     secretType: 'generic'
+    secretName: 'azure-pipelines-deploy-token'
