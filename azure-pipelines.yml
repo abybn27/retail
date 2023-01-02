@@ -15,17 +15,17 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-- task: Docker@2
-  inputs:
-    containerRegistry: 'docker'
-    repository: 'abybn27/retail'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: 'latest'
+#- script: |
+#    npm install
+#    npm run build
+#  displayName: 'npm install and build'
+#- task: Docker@2
+#  inputs:
+#    containerRegistry: 'docker'
+#    repository: 'abybn27/retail'
+#    command: 'buildAndPush'
+#    Dockerfile: '**/Dockerfile'
+#    tags: 'latest'
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
@@ -33,5 +33,4 @@ steps:
     namespace: 'default'
     command: 'apply'
     arguments: '-f k8s'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
+    secretType: 'generic'
