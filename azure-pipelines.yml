@@ -25,3 +25,4 @@ steps:
     repository: 'abybn27/retail'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    tags: 'latest'
